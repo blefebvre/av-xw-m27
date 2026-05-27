@@ -212,8 +212,23 @@ var CustomImportScript = (() => {
 
   // tools/importer/transformers/abbvie-cleanup.js
   var H = { before: "beforeTransform", after: "afterTransform" };
+  var extractedMeta = {};
   function transform(hookName, element, payload) {
     if (hookName === H.before) {
+      const storyinfo = element.querySelector(".storyinfo");
+      if (storyinfo) {
+        const firstP = storyinfo.querySelector("p");
+        if (firstP) {
+          const categoryLink = firstP.querySelector("a");
+          const category = categoryLink ? categoryLink.textContent.trim() : "";
+          const textContent = firstP.textContent.trim();
+          const date = textContent.replace(category, "").trim();
+          if (date) extractedMeta.publishdate = date;
+          if (category) extractedMeta.category = category;
+        }
+      }
+      WebImporter.DOMUtils.remove(element, [".button.back-cta"]);
+      WebImporter.DOMUtils.remove(element, [".storyinfo"]);
       WebImporter.DOMUtils.remove(element, [
         "#onetrust-consent-sdk",
         ".onetrust-pc-dark-filter"
@@ -439,6 +454,18 @@ var CustomImportScript = (() => {
     transform: (payload) => {
       const { document, url, html, params } = payload;
       const main = document.body;
+      let publishdate = "";
+      let category = "";
+      const storyinfo = document.querySelector(".storyinfo");
+      if (storyinfo) {
+        const firstP = storyinfo.querySelector("p");
+        if (firstP) {
+          const categoryLink = firstP.querySelector("a");
+          category = categoryLink ? categoryLink.textContent.trim() : "";
+          const textContent = firstP.textContent.trim();
+          publishdate = textContent.replace(category, "").trim();
+        }
+      }
       executeTransformers("beforeTransform", main, payload);
       const pageBlocks = findBlocksOnPage(document, PAGE_TEMPLATE);
       pageBlocks.forEach((block) => {
@@ -457,6 +484,30 @@ var CustomImportScript = (() => {
       const hr = document.createElement("hr");
       main.appendChild(hr);
       WebImporter.rules.createMetadata(main, document);
+      const metadataTable = main.lastElementChild;
+      if (metadataTable && metadataTable.tagName === "TABLE") {
+        const tbody = metadataTable.querySelector("tbody") || metadataTable;
+        if (publishdate) {
+          const row = document.createElement("tr");
+          const keyCell = document.createElement("td");
+          keyCell.textContent = "publishdate";
+          const valCell = document.createElement("td");
+          valCell.textContent = publishdate;
+          row.appendChild(keyCell);
+          row.appendChild(valCell);
+          tbody.appendChild(row);
+        }
+        if (category) {
+          const row = document.createElement("tr");
+          const keyCell = document.createElement("td");
+          keyCell.textContent = "category";
+          const valCell = document.createElement("td");
+          valCell.textContent = category;
+          row.appendChild(keyCell);
+          row.appendChild(valCell);
+          tbody.appendChild(row);
+        }
+      }
       WebImporter.rules.transformBackgroundImages(main, document);
       WebImporter.rules.adjustImageUrls(main, url, params.originalURL);
       const path = WebImporter.FileUtils.sanitizePath(

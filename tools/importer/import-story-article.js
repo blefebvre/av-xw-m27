@@ -139,7 +139,21 @@ export default {
 
     const main = document.body;
 
-    // 1. Execute beforeTransform transformers
+    // 1. Extract article metadata from .storyinfo before cleanup removes it
+    let publishdate = '';
+    let category = '';
+    const storyinfo = document.querySelector('.storyinfo');
+    if (storyinfo) {
+      const firstP = storyinfo.querySelector('p');
+      if (firstP) {
+        const categoryLink = firstP.querySelector('a');
+        category = categoryLink ? categoryLink.textContent.trim() : '';
+        const textContent = firstP.textContent.trim();
+        publishdate = textContent.replace(category, '').trim();
+      }
+    }
+
+    // 2. Execute beforeTransform transformers
     executeTransformers('beforeTransform', main, payload);
 
     // 2. Find blocks on page using embedded template
@@ -166,6 +180,34 @@ export default {
     const hr = document.createElement('hr');
     main.appendChild(hr);
     WebImporter.rules.createMetadata(main, document);
+
+    // 7. Append custom metadata (publishdate, category) to the metadata table
+    // createMetadata produces a <table> — the last table appended to main
+    const metadataTable = main.lastElementChild;
+    if (metadataTable && metadataTable.tagName === 'TABLE') {
+      const tbody = metadataTable.querySelector('tbody') || metadataTable;
+      if (publishdate) {
+        const row = document.createElement('tr');
+        const keyCell = document.createElement('td');
+        keyCell.textContent = 'publishdate';
+        const valCell = document.createElement('td');
+        valCell.textContent = publishdate;
+        row.appendChild(keyCell);
+        row.appendChild(valCell);
+        tbody.appendChild(row);
+      }
+      if (category) {
+        const row = document.createElement('tr');
+        const keyCell = document.createElement('td');
+        keyCell.textContent = 'category';
+        const valCell = document.createElement('td');
+        valCell.textContent = category;
+        row.appendChild(keyCell);
+        row.appendChild(valCell);
+        tbody.appendChild(row);
+      }
+    }
+
     WebImporter.rules.transformBackgroundImages(main, document);
     WebImporter.rules.adjustImageUrls(main, url, params.originalURL);
 

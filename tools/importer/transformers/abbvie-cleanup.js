@@ -17,8 +17,31 @@
  */
 const H = { before: 'beforeTransform', after: 'afterTransform' };
 
+// Shared state for extracted metadata (populated in beforeTransform, consumed by import script)
+export const extractedMeta = {};
+
 export default function transform(hookName, element, payload) {
   if (hookName === H.before) {
+    // Extract date and category from .storyinfo before removing it
+    const storyinfo = element.querySelector('.storyinfo');
+    if (storyinfo) {
+      const firstP = storyinfo.querySelector('p');
+      if (firstP) {
+        const categoryLink = firstP.querySelector('a');
+        const category = categoryLink ? categoryLink.textContent.trim() : '';
+        const textContent = firstP.textContent.trim();
+        const date = textContent.replace(category, '').trim();
+        if (date) extractedMeta.publishdate = date;
+        if (category) extractedMeta.category = category;
+      }
+    }
+
+    // Remove breadcrumb "All Stories" back-CTA (will be autoblocked from template)
+    WebImporter.DOMUtils.remove(element, ['.button.back-cta']);
+
+    // Remove storyinfo (date/category extracted above; read-time will be autoblocked)
+    WebImporter.DOMUtils.remove(element, ['.storyinfo']);
+
     // Remove elements that could interfere with block parsing:
     // - Cookie consent overlay/banner (covers content, may affect selectors)
     WebImporter.DOMUtils.remove(element, [
