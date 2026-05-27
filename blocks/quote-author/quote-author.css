@@ -1,41 +1,114 @@
+/* Block: quote-author */
+/* Styled to match source: large quote text with opening quote mark, circular headshot + author info */
+
 .quote-author blockquote {
-  margin: 0 auto;
-  padding: 0 24px;
-  max-width: 900px;
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
+/* Quotation section */
+.quote-author .quote-author-quotation {
+  position: relative;
+  padding-top: 48px;
+}
+
+/* Large opening quotation mark icon */
+.quote-author .quote-author-quotation::before {
+  content: '\201C';
+  display: block;
+  font-family: var(--heading-font-family);
+  font-size: 72px;
+  font-weight: 700;
+  line-height: 1;
+  color: #0d6efd;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+/* Quote text */
+.quote-author .quote-author-quotation p {
+  font-size: 28px;
+  font-family: var(--heading-font-family);
+  font-weight: 650;
+  line-height: 34px;
+  color: var(--text-color);
+  margin: 0;
+}
+
+/* Do not show closing quote from existing pseudo-element rules */
+.quote-author .quote-author-quotation p:first-child::before,
+.quote-author .quote-author-quotation p:last-child::after {
+  content: none;
+}
+
+.quote-author .quote-author-quotation > :first-child {
+  text-indent: 0;
+}
+
+/* Attribution section */
+.quote-author .quote-author-attribution {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 40px;
+  text-align: left;
+}
+
+/* Reset the ::before from base styles */
+.quote-author .quote-author-attribution p:first-child::before {
+  content: none;
+  padding-right: 0;
+}
+
+/* The wrapper paragraph that contains picture + author text */
+.quote-author .quote-author-attribution > p {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 0;
+  font-size: 16px;
+  line-height: 20px;
+  color: var(--text-color);
+}
+
+/* Author headshot image */
+.quote-author .quote-author-attribution picture {
+  flex-shrink: 0;
+  width: 38px;
+  height: 38px;
+  margin-right: 12px;
+}
+
+.quote-author .quote-author-attribution img {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* Author name and title text (nested p) */
+.quote-author .quote-author-attribution p p {
+  margin: 0;
+  font-size: 16px;
+  font-family: var(--body-font-family);
+  font-weight: 400;
+  line-height: 20px;
+  color: var(--text-color);
 }
 
 @media (width >= 900px) {
-  .quote-author blockquote {
-    padding: 0 32px;
+  .quote-author .quote-author-quotation::before {
+    font-size: 80px;
   }
-}
 
-.quote-author blockquote .quote-author-quotation {
-  font-size: 120%;
-}
+  .quote-author .quote-author-quotation p {
+    font-size: 40px;
+    line-height: 44px;
+  }
 
-.quote-author blockquote .quote-author-quotation > :first-child {
-  text-indent: -0.5ch;
-}
-
-.quote-author blockquote .quote-author-quotation p:first-child::before,
-.quote-author blockquote .quote-author-quotation p:last-child::after {
-  line-height: 0;
-}
-
-.quote-author blockquote .quote-author-quotation p:first-child::before {
-  content: '\201C';
-}
-
-.quote-author blockquote .quote-author-quotation p:last-child::after {
-  content: '\201D';
-}
-
-.quote-author blockquote .quote-author-attribution {
-  text-align: right;
-}
-
-.quote-author blockquote .quote-author-attribution p:first-child::before {
-  content: '\2014';
-  padding-right: 0.5ch;
+  .quote-author .quote-author-quotation {
+    padding-top: 56px;
+  }
 }

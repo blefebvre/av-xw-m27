@@ -3,5 +3,9 @@
   "libraryUrl": "https://main--sta-xwalk-boilerplate--aemysites.aem.page/tools/sidekick/library.json",
   "previewOrg": "blefebvre",
   "previewSite": "av-xw-m27",
-  "contentHostUrl": "author-p170502-e1825534.adobeaemcloud.com"
+  "contentHostUrl": "author-p170502-e1825534.adobeaemcloud.com",
+  "aemSitePath": "/content/blefebvr-abbvie-may-27",
+  "aemAssetsFolderPath": "/content/dam/blefebvr-abbvie-may-27",
+  "aemSiteName": "blefebvr-abbvie-may-27",
+  "aemSiteTitle": "blefebvr-abbvie-may-27"
 }

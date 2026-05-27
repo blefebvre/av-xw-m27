@@ -1,0 +1,18 @@
+:root {
+  --heading-font-family: "F37 Lineca Book", Helvetica, Arial, sans-serif;
+  --body-font-family: "Roboto", Helvetica, Arial, sans-serif;
+  --background-color: #fff;
+  --text-color: #071d49;
+  --link-color: #071d49;
+  --link-hover-color: #071d49;
+  --light-color: #f5f5f5;
+  --dark-color: #071d49;
+  --section-padding: 48px;
+  --nav-height: 72px;
+  --heading-font-size-xxl: 40px;
+  --heading-font-size-xl: 30px;
+  --heading-font-size-l: 28px;
+  --heading-font-size-m: 30px;
+  --heading-font-size-s: 28px;
+  --heading-font-size-xs: 16px;
+}

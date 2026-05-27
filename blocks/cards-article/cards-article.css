@@ -1,27 +1,163 @@
+/* Block: cards-article -- article card grid */
+/* Extracted values from source: abbvie.com .cardpagestory.card-standard */
+
 .cards-article > ul {
   list-style: none;
   margin: 0;
   padding: 0;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(257px, 1fr));
-  gap: 24px;
+  grid-template-columns: 1fr;
+  gap: 20px;
 }
 
+@media (width >= 900px) {
+  .cards-article > ul {
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  }
+}
+
+/* Card item */
 .cards-article > ul > li {
-  border: 1px solid #dadada;
-  background-color: var(--background-color);
+  display: flex;
+  flex-direction: column;
+  border-radius: 0;
+  overflow: visible;
+  text-decoration: none;
 }
 
-.cards-article .cards-article-card-body {
-  margin: 16px;
-}
-
+/* Image container */
 .cards-article .cards-article-card-image {
   line-height: 0;
+  overflow: hidden;
+  border-radius: 0;
 }
 
 .cards-article > ul > li img {
   width: 100%;
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 16 / 9;
   object-fit: cover;
+  border-radius: 0;
+  display: block;
+}
+
+/* Card body */
+.cards-article .cards-article-card-body {
+  padding: 16px 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  flex: 1;
+}
+
+/* Eyebrow / Category (first p) */
+.cards-article .cards-article-card-body > p:first-child {
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  color: var(--text-color);
+  margin: 0;
+  line-height: 20px;
+  font-family: var(--body-font-family);
+}
+
+/* Title (second p with strong) */
+.cards-article .cards-article-card-body > p:nth-child(2) {
+  font-size: 20px;
+  font-weight: 400;
+  font-family: var(--body-font-family);
+  line-height: 24px;
+  color: var(--text-color);
+  margin: 8px 0;
+}
+
+.cards-article .cards-article-card-body > p:nth-child(2) strong {
+  font-weight: 400;
+}
+
+/* Description paragraph (third p, before button-container) */
+.cards-article .cards-article-card-body > p:nth-child(3):not(.button-container) {
+  font-size: 14px;
+  font-family: var(--body-font-family);
+  line-height: 20px;
+  color: var(--text-color);
+  margin: 0 0 8px;
+}
+
+/* CTA link "Learn More" */
+.cards-article .cards-article-card-body .button-container {
+  margin-top: auto;
+  padding-top: 8px;
+}
+
+.cards-article .cards-article-card-body a.button:any-link {
+  font-size: 14px;
+  font-weight: 700;
+  font-family: var(--body-font-family);
+  color: rgb(0, 102, 245);
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.84px;
+  background: none;
+  border: none;
+  border-radius: 0;
+  padding: 0;
+  display: inline;
+  white-space: nowrap;
+}
+
+.cards-article .cards-article-card-body a.button:any-link::after {
+  content: " \203A";
+  font-size: 18px;
+  font-weight: 700;
+  margin-left: 4px;
+}
+
+.cards-article .cards-article-card-body a.button:hover {
+  text-decoration: underline;
+  color: rgb(0, 102, 245);
+}
+
+/* Dark section: side-by-side layout for multiple card wrappers */
+.dark > .cards-article-wrapper {
+  display: inline-block;
+  vertical-align: top;
+}
+
+@media (width >= 900px) {
+  .dark > .cards-article-wrapper {
+    width: calc(50% - 10px);
+    margin-right: 20px;
+  }
+
+  .dark > .cards-article-wrapper:last-of-type {
+    margin-right: 0;
+  }
+
+  /* Horizontal card layout in dark section */
+  .dark .cards-article > ul > li {
+    flex-direction: row;
+    gap: 20px;
+  }
+
+  .dark .cards-article .cards-article-card-image {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+
+  .dark .cards-article .cards-article-card-body {
+    padding-top: 0;
+    justify-content: center;
+  }
+}
+
+/* Dark section text color overrides */
+.dark .cards-article .cards-article-card-body > p:first-child,
+.dark .cards-article .cards-article-card-body > p:nth-child(2),
+.dark .cards-article .cards-article-card-body > p:nth-child(3):not(.button-container) {
+  color: #fff;
+}
+
+.dark .cards-article .cards-article-card-body a.button:any-link {
+  color: rgb(0, 102, 245);
 }
