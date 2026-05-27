@@ -1,0 +1,39 @@
+{
+  "variantName": "quote-author",
+  "baseBlock": "quote",
+  "version": "1.0.0",
+  "created": "2026-05-27T19:14:00.000Z",
+  "sourceContext": {
+    "originUrl": "https://www.abbvie.com/who-we-are/our-stories/three-ways-ai-is-changing-drug-discovery-at-abbvie.html",
+    "originPage": "AI drug discovery story article",
+    "blockPosition": "middle"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "spacious",
+    "purpose": "expert-quote",
+    "imagePattern": "headshot"
+  },
+  "contentPattern": {
+    "structure": "quote text + author headshot + author name + author title",
+    "buttonCount": 0,
+    "imageCount": 1
+  },
+  "reuseGuidance": {
+    "suitableFor": [
+      "expert pull quotes with attribution",
+      "testimonials with author photos",
+      "article quotes with headshots and job titles"
+    ],
+    "notSuitableFor": [
+      "simple text-only quotes without attribution",
+      "customer reviews without photos",
+      "short inline quotations"
+    ]
+  },
+  "usage": {
+    "pagesUsing": ["/who-we-are/our-stories/three-ways-ai-is-changing-drug-discovery-at-abbvie"],
+    "reuseCount": 1,
+    "lastUsed": "2026-05-27T19:14:00.000Z"
+  }
+}

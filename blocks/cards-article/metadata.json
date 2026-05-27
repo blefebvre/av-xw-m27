@@ -1,0 +1,39 @@
+{
+  "variantName": "cards-article",
+  "baseBlock": "cards",
+  "version": "1.0.0",
+  "created": "2026-05-27T19:14:00.000Z",
+  "sourceContext": {
+    "originUrl": "https://www.abbvie.com/who-we-are/our-stories/three-ways-ai-is-changing-drug-discovery-at-abbvie.html",
+    "originPage": "AI drug discovery story article",
+    "blockPosition": "bottom"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "mixed",
+    "density": "compact",
+    "purpose": "related-articles",
+    "imagePattern": "large"
+  },
+  "contentPattern": {
+    "structure": "image + category tag + title + description + CTA link",
+    "buttonCount": 1,
+    "imageCount": 1
+  },
+  "reuseGuidance": {
+    "suitableFor": [
+      "related articles/stories sections",
+      "article card grids with category tags",
+      "content recommendations with images and CTAs"
+    ],
+    "notSuitableFor": [
+      "product cards with pricing",
+      "feature cards with icons",
+      "team member cards with bios"
+    ]
+  },
+  "usage": {
+    "pagesUsing": ["/who-we-are/our-stories/three-ways-ai-is-changing-drug-discovery-at-abbvie"],
+    "reuseCount": 1,
+    "lastUsed": "2026-05-27T19:14:00.000Z"
+  }
+}

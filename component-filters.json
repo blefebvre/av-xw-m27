@@ -34,6 +34,12 @@
     ]
   },
   {
+    "id": "cards-article",
+    "components": [
+      "card"
+    ]
+  },
+  {
     "id": "cards",
     "components": [
       "card"
@@ -89,6 +95,10 @@
     "components": [
       "tabs-item"
     ]
+  },
+  {
+    "id": "video-inline",
+    "components": []
   },
   {
     "id": "video",

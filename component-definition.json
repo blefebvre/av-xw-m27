@@ -115,6 +115,36 @@
           }
         },
         {
+          "title": "Cards Article",
+          "id": "cards-article",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "Cards Article",
+                  "filter": "cards-article"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Card",
+          "id": "card",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block/item",
+                "template": {
+                  "name": "Card",
+                  "model": "card"
+                }
+              }
+            }
+          }
+        },
+        {
           "title": "Cards",
           "id": "cards",
           "plugins": {
@@ -153,7 +183,6 @@
                 "resourceType": "core/franklin/components/block/v1/block",
                 "template": {
                   "name": "Carousel",
-                  "model": "carousel",
                   "filter": "carousel"
                 }
               }
@@ -236,6 +265,21 @@
           }
         },
         {
+          "title": "Hero Article",
+          "id": "hero-article",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "Hero Article",
+                  "model": "hero-article"
+                }
+              }
+            }
+          }
+        },
+        {
           "title": "Hero",
           "id": "hero",
           "plugins": {
@@ -260,6 +304,21 @@
                 "template": {
                   "name": "Modal",
                   "model": "modal"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Quote Author",
+          "id": "quote-author",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "Quote Author",
+                  "model": "quote-author"
                 }
               }
             }
@@ -409,6 +468,22 @@
                   "model": "tabs-item",
                   "title": "Tab Name",
                   "content_headingType": "h3"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Video Inline",
+          "id": "video-inline",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "Video Inline",
+                  "model": "video-inline",
+                  "filter": "video-inline"
                 }
               }
             }

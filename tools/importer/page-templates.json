@@ -1,0 +1,91 @@
+{
+  "metadata": {
+    "projectType": "xwalk"
+  },
+  "templates": [
+    {
+      "name": "story-article",
+      "urls": [
+        "https://www.abbvie.com/who-we-are/our-stories/three-ways-ai-is-changing-drug-discovery-at-abbvie.html"
+      ],
+      "description": "Story article page from the Who We Are / Our Stories section, featuring long-form narrative content about company initiatives",
+      "blocks": [
+        {
+          "name": "hero-article",
+          "instances": [
+            ".container.abbvie-container.large-radius.cmp-container-full-width"
+          ]
+        },
+        {
+          "name": "video-inline",
+          "instances": [
+            ".video.cmp-video-xx-large"
+          ]
+        },
+        {
+          "name": "quote-author",
+          "instances": [
+            ".quote.cmp-quote-xx-large"
+          ]
+        },
+        {
+          "name": "cards-article",
+          "instances": [
+            ".cardpagestory.card-standard"
+          ]
+        }
+      ],
+      "sections": [
+        {
+          "id": "section-hero",
+          "name": "Hero",
+          "selector": ".container.abbvie-container.large-radius.cmp-container-full-width",
+          "style": null,
+          "blocks": [
+            "hero-article"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "section-article-body",
+          "name": "Article Body",
+          "selector": ".grid-row__col-with-8.grid-cell",
+          "style": null,
+          "blocks": [
+            "video-inline",
+            "quote-author"
+          ],
+          "defaultContent": [
+            ".text.cmp-text-xx-large",
+            ".title.cmp-title-xx-large",
+            ".separator"
+          ]
+        },
+        {
+          "id": "section-related-sidebar",
+          "name": "Related Content Sidebar",
+          "selector": ".grid-row__col-with-2.grid-cell .container.abbvie-container.height-short",
+          "style": null,
+          "blocks": [
+            "cards-article"
+          ],
+          "defaultContent": [
+            ".header.standard-header-with-divider"
+          ]
+        },
+        {
+          "id": "section-related-bottom",
+          "name": "Related Content Bottom",
+          "selector": "#container-9dbfe90168",
+          "style": "dark",
+          "blocks": [
+            "cards-article"
+          ],
+          "defaultContent": [
+            ".title.medium-weight"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "variantName": "video-inline",
+  "baseBlock": "video",
+  "version": "1.0.0",
+  "created": "2026-05-27T19:14:00.000Z",
+  "sourceContext": {
+    "originUrl": "https://www.abbvie.com/who-we-are/our-stories/three-ways-ai-is-changing-drug-discovery-at-abbvie.html",
+    "originPage": "AI drug discovery story article",
+    "blockPosition": "middle"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "minimal",
+    "purpose": "inline-video",
+    "imagePattern": "poster"
+  },
+  "contentPattern": {
+    "structure": "poster image + video link",
+    "buttonCount": 0,
+    "imageCount": 1
+  },
+  "reuseGuidance": {
+    "suitableFor": [
+      "inline article videos",
+      "embedded explainer videos within body content",
+      "short-form video content in editorial pages"
+    ],
+    "notSuitableFor": [
+      "hero video backgrounds",
+      "video galleries or carousels",
+      "full-width video sections"
+    ]
+  },
+  "usage": {
+    "pagesUsing": ["/who-we-are/our-stories/three-ways-ai-is-changing-drug-discovery-at-abbvie"],
+    "reuseCount": 1,
+    "lastUsed": "2026-05-27T19:14:00.000Z"
+  }
+}

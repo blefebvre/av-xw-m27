@@ -1,0 +1,41 @@
+.quote-author blockquote {
+  margin: 0 auto;
+  padding: 0 24px;
+  max-width: 900px;
+}
+
+@media (width >= 900px) {
+  .quote-author blockquote {
+    padding: 0 32px;
+  }
+}
+
+.quote-author blockquote .quote-author-quotation {
+  font-size: 120%;
+}
+
+.quote-author blockquote .quote-author-quotation > :first-child {
+  text-indent: -0.5ch;
+}
+
+.quote-author blockquote .quote-author-quotation p:first-child::before,
+.quote-author blockquote .quote-author-quotation p:last-child::after {
+  line-height: 0;
+}
+
+.quote-author blockquote .quote-author-quotation p:first-child::before {
+  content: '\201C';
+}
+
+.quote-author blockquote .quote-author-quotation p:last-child::after {
+  content: '\201D';
+}
+
+.quote-author blockquote .quote-author-attribution {
+  text-align: right;
+}
+
+.quote-author blockquote .quote-author-attribution p:first-child::before {
+  content: '\2014';
+  padding-right: 0.5ch;
+}

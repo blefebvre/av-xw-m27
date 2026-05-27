@@ -1,0 +1,19 @@
+{
+  "status": "success",
+  "url": "https://www.abbvie.com/who-we-are/our-stories/three-ways-ai-is-changing-drug-discovery-at-abbvie.html",
+  "path": "who-we-are/our-stories/three-ways-ai-is-changing-drug-discovery-at-abbvie",
+  "timestamp": "2026-05-27T19:33:38.535Z",
+  "title": "Three ways AI is changing drug discovery at AbbVie | AbbVie",
+  "template": "story-article",
+  "blocks": [
+    "hero-article",
+    "hero-article",
+    "video-inline",
+    "quote-author",
+    "quote-author",
+    "quote-author",
+    "cards-article",
+    "cards-article",
+    "cards-article"
+  ]
+}
