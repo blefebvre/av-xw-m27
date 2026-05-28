@@ -255,7 +255,10 @@ var CustomImportScript = (() => {
         ".button.back-to-top",
         // Tracking pixels (Twitter, analytics)
         'img[src*="t.co/i/adsct"]',
-        'img[src*="analytics.twitter.com"]'
+        'img[src*="analytics.twitter.com"]',
+        // Sidebar related content (duplicates bottom related content section)
+        ".grid-row__col-with-2.grid-cell .header.standard-header-with-divider",
+        ".grid-row__col-with-2.grid-cell .cardpagestory"
       ]);
     }
   }
