@@ -505,6 +505,10 @@ var CustomImportScript = (() => {
           row.appendChild(valCell);
           tbody.appendChild(row);
         }
+        const allCells = tbody.querySelectorAll("td");
+        allCells.forEach((cell) => {
+          if (cell.textContent === "og:title") cell.textContent = "og-title";
+        });
         if (publishdate) {
           const row = document.createElement("tr");
           const keyCell = document.createElement("td");

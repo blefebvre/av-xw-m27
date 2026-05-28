@@ -199,6 +199,12 @@ export default {
         tbody.appendChild(row);
       }
 
+      // Rename og:title to og-title (colon causes NamespaceError in md2jcr)
+      const allCells = tbody.querySelectorAll('td');
+      allCells.forEach((cell) => {
+        if (cell.textContent === 'og:title') cell.textContent = 'og-title';
+      });
+
       if (publishdate) {
         const row = document.createElement('tr');
         const keyCell = document.createElement('td');

@@ -24,7 +24,7 @@
       {
         "component": "text",
         "valueType": "string",
-        "name": "og:title",
+        "name": "og-title",
         "label": "OG Title"
       },
       {
