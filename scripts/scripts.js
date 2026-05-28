@@ -230,11 +230,11 @@ function autolinkModals(doc) {
 function buildArticleMeta(main) {
   if (getMetadata('template') !== 'article') return;
 
-  const firstSection = main.querySelector('.section');
-  if (!firstSection) return;
+  const h1 = main.querySelector('h1');
+  if (!h1) return;
 
-  const metaWrapper = document.createElement('div');
-  metaWrapper.className = 'article-meta';
+  const metaWrapper = document.createElement('aside');
+  metaWrapper.className = 'article-byline';
 
   // Breadcrumb from path
   const path = window.location.pathname;
@@ -245,7 +245,8 @@ function buildArticleMeta(main) {
     breadcrumb.setAttribute('aria-label', 'Breadcrumb');
     const link = document.createElement('a');
     link.href = `/${segments.slice(0, -1).join('/')}.html`;
-    link.textContent = 'All Stories';
+    const parentSegment = segments[segments.length - 2] || '';
+    link.textContent = parentSegment.replace(/-/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase());
     breadcrumb.appendChild(link);
     metaWrapper.appendChild(breadcrumb);
   }
@@ -272,7 +273,7 @@ function buildArticleMeta(main) {
     metaWrapper.appendChild(infoRow);
   }
 
-  firstSection.prepend(metaWrapper);
+  h1.parentElement.insertBefore(metaWrapper, h1);
 }
 
 function buildAutoBlocks(main) {

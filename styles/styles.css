@@ -23,14 +23,56 @@
 
 @font-face {
   font-family: "F37 Lineca Book";
-  size-adjust: 95%;
-  src: local("Helvetica Neue"), local("Helvetica"), local("Arial");
+  font-weight: 650;
+  font-style: normal;
+  font-display: swap;
+  src:
+    url("https://www.abbvie.com/etc.clientlibs/abbvie-com2/clientlibs/clientlib-site/resources/custom-fonts/F37Lineca/fonts/F37Lineca-Book.woff2") format("woff2"),
+    local("Helvetica Neue"),
+    local("Helvetica"),
+    local("Arial");
 }
 
 @font-face {
   font-family: "F37 Lineca Medium";
-  size-adjust: 95%;
-  src: local("Helvetica Neue"), local("Helvetica"), local("Arial");
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+  src:
+    url("https://www.abbvie.com/etc.clientlibs/abbvie-com2/clientlibs/clientlib-site/resources/custom-fonts/F37Lineca/fonts/F37Lineca-Medium.woff2") format("woff2"),
+    local("Helvetica Neue"),
+    local("Helvetica"),
+    local("Arial");
+}
+
+@font-face {
+  font-family: Roboto;
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+  src:
+    url("https://www.abbvie.com/etc.clientlibs/abbvie-com2/clientlibs/clientlib-site/resources/custom-fonts/Roboto/fonts/Roboto-Light.woff2") format("woff2"),
+    local("Roboto Light");
+}
+
+@font-face {
+  font-family: Roboto;
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+  src:
+    url("https://www.abbvie.com/etc.clientlibs/abbvie-com2/clientlibs/clientlib-site/resources/custom-fonts/Roboto/fonts/Roboto-Regular.woff2") format("woff2"),
+    local("Roboto");
+}
+
+@font-face {
+  font-family: Roboto;
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+  src:
+    url("https://www.abbvie.com/etc.clientlibs/abbvie-com2/clientlibs/clientlib-site/resources/custom-fonts/Roboto/fonts/Roboto-Bold.woff2") format("woff2"),
+    local("Roboto Bold");
 }
 
 @media (width >= 900px) {
@@ -84,7 +126,7 @@ h6 {
   margin-top: 0.8em;
   margin-bottom: 0.25em;
   font-family: var(--heading-font-family);
-  font-weight: 400;
+  font-weight: 650;
   line-height: 1.2;
   color: var(--text-color);
   scroll-margin: 40px;
@@ -238,7 +280,7 @@ main .section.dark a:any-link {
 }
 
 /* Article meta (autoblocked for template: article) */
-.article-meta {
+.article-byline {
   margin-bottom: 24px;
 }
 
@@ -246,7 +288,7 @@ main .section.dark a:any-link {
   margin-bottom: 24px;
 }
 
-main .article-breadcrumb a:any-link {
+main .section .article-breadcrumb a:any-link {
   font-size: 14px;
   font-weight: 500;
   color: #0066f5;
@@ -255,13 +297,13 @@ main .article-breadcrumb a:any-link {
   text-decoration: none;
 }
 
-main .article-breadcrumb a:any-link::before {
+main .section .article-breadcrumb a:any-link::before {
   content: '\2039';
   margin-right: 6px;
   font-size: 18px;
 }
 
-main .article-breadcrumb a:any-link:hover {
+main .section .article-breadcrumb a:any-link:hover {
   text-decoration: underline;
 }
 
