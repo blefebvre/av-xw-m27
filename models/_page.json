@@ -21,6 +21,34 @@
           "name": "keywords",
           "multi": true,
           "label": "Keywords"
+        },
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "og:title",
+          "label": "OG Title"
+        },
+        {
+          "component": "select",
+          "valueType": "string",
+          "name": "template",
+          "label": "Template",
+          "options": [
+            { "name": "None", "value": "" },
+            { "name": "Article", "value": "article" }
+          ]
+        },
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "publishdate",
+          "label": "Publish Date"
+        },
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "category",
+          "label": "Category"
         }
       ]
     }
