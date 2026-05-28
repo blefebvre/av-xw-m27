@@ -1,4 +1,5 @@
 /* Block: quote-author */
+
 /* Styled to match source: large quote text with opening quote mark, circular headshot + author info */
 
 .quote-author blockquote {
@@ -21,7 +22,7 @@
   font-size: 72px;
   font-weight: 700;
   line-height: 1;
-  color: #0d6efd;
+  color: var(--text-color);
   position: absolute;
   top: 0;
   left: 0;

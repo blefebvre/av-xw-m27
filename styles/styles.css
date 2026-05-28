@@ -93,7 +93,12 @@ h6 {
 h1 { font-size: var(--heading-font-size-xxl); }
 h2 { font-size: var(--heading-font-size-xl); }
 h3 { font-size: var(--heading-font-size-l); }
-h4 { font-size: var(--heading-font-size-m); font-weight: 800; font-family: "F37 Lineca Medium", Helvetica, Arial, sans-serif; }
+
+h4 {
+  font-size: var(--heading-font-size-m);
+  font-weight: 800;
+  font-family: "F37 Lineca Medium", helvetica, arial, sans-serif;
+}
 h5 { font-size: var(--heading-font-size-s); }
 h6 { font-size: var(--heading-font-size-xs); }
 
@@ -151,6 +156,7 @@ a:hover {
 
 /* buttons - reset for article content */
 main .button-container { display: inline; }
+
 main a.button:any-link {
   background: none;
   border: none;

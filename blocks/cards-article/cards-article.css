@@ -1,4 +1,5 @@
 /* Block: cards-article -- article card grid */
+
 /* Extracted values from source: abbvie.com .cardpagestory.card-standard */
 
 .cards-article > ul {
@@ -94,7 +95,7 @@
   font-size: 14px;
   font-weight: 700;
   font-family: var(--body-font-family);
-  color: rgb(0, 102, 245);
+  color: rgb(0 102 245);
   text-decoration: none;
   text-transform: uppercase;
   letter-spacing: 0.84px;
@@ -115,39 +116,55 @@
 
 .cards-article .cards-article-card-body a.button:hover {
   text-decoration: underline;
-  color: rgb(0, 102, 245);
+  color: rgb(0 102 245);
 }
 
-/* Dark section: side-by-side layout for multiple card wrappers */
-.dark > .cards-article-wrapper {
-  display: inline-block;
-  vertical-align: top;
+/* Dark section: grid layout for side-by-side cards */
+.dark.cards-article-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 48px 24px;
 }
 
-@media (width >= 900px) {
-  .dark > .cards-article-wrapper {
-    width: calc(50% - 10px);
-    margin-right: 20px;
+.dark.cards-article-container > .default-content-wrapper {
+  grid-column: 1 / -1;
+}
+
+.dark.cards-article-container > .default-content-wrapper h5 {
+  text-align: left;
+}
+
+/* Horizontal card layout in dark section (image left, text right) */
+.dark .cards-article > ul > li {
+  flex-direction: row;
+  gap: 20px;
+}
+
+.dark .cards-article .cards-article-card-image {
+  flex: 0 0 48%;
+  max-width: 48%;
+}
+
+.dark .cards-article .cards-article-card-body {
+  padding-top: 0;
+  justify-content: center;
+}
+
+@media (width < 900px) {
+  .dark.cards-article-container {
+    grid-template-columns: 1fr;
   }
 
-  .dark > .cards-article-wrapper:last-of-type {
-    margin-right: 0;
-  }
-
-  /* Horizontal card layout in dark section */
   .dark .cards-article > ul > li {
-    flex-direction: row;
-    gap: 20px;
+    flex-direction: column;
   }
 
   .dark .cards-article .cards-article-card-image {
-    flex: 0 0 50%;
-    max-width: 50%;
-  }
-
-  .dark .cards-article .cards-article-card-body {
-    padding-top: 0;
-    justify-content: center;
+    flex: none;
+    max-width: 100%;
   }
 }
 
@@ -159,5 +176,5 @@
 }
 
 .dark .cards-article .cards-article-card-body a.button:any-link {
-  color: rgb(0, 102, 245);
+  color: rgb(0 102 245);
 }
