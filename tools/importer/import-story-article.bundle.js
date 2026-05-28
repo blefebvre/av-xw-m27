@@ -247,7 +247,15 @@ var CustomImportScript = (() => {
         // Tracking iframes
         "iframe",
         // GTM noscript fallbacks
-        "noscript"
+        "noscript",
+        // Departure warning popup modal
+        ".modal-popup.popup-departure",
+        "#abbvie-warn-on-departure-popup",
+        // Back to top button
+        ".button.back-to-top",
+        // Tracking pixels (Twitter, analytics)
+        'img[src*="t.co/i/adsct"]',
+        'img[src*="analytics.twitter.com"]'
       ]);
     }
   }
@@ -487,6 +495,16 @@ var CustomImportScript = (() => {
       const metadataTable = main.lastElementChild;
       if (metadataTable && metadataTable.tagName === "TABLE") {
         const tbody = metadataTable.querySelector("tbody") || metadataTable;
+        if (document.body.classList.contains("storypage")) {
+          const row = document.createElement("tr");
+          const keyCell = document.createElement("td");
+          keyCell.textContent = "template";
+          const valCell = document.createElement("td");
+          valCell.textContent = "article";
+          row.appendChild(keyCell);
+          row.appendChild(valCell);
+          tbody.appendChild(row);
+        }
         if (publishdate) {
           const row = document.createElement("tr");
           const keyCell = document.createElement("td");

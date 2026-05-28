@@ -181,11 +181,24 @@ export default {
     main.appendChild(hr);
     WebImporter.rules.createMetadata(main, document);
 
-    // 7. Append custom metadata (publishdate, category) to the metadata table
+    // 7. Append custom metadata (publishdate, category, template) to the metadata table
     // createMetadata produces a <table> — the last table appended to main
     const metadataTable = main.lastElementChild;
     if (metadataTable && metadataTable.tagName === 'TABLE') {
       const tbody = metadataTable.querySelector('tbody') || metadataTable;
+
+      // Add template: article if body has class storypage
+      if (document.body.classList.contains('storypage')) {
+        const row = document.createElement('tr');
+        const keyCell = document.createElement('td');
+        keyCell.textContent = 'template';
+        const valCell = document.createElement('td');
+        valCell.textContent = 'article';
+        row.appendChild(keyCell);
+        row.appendChild(valCell);
+        tbody.appendChild(row);
+      }
+
       if (publishdate) {
         const row = document.createElement('tr');
         const keyCell = document.createElement('td');

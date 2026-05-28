@@ -65,6 +65,14 @@ export default function transform(hookName, element, payload) {
       'iframe',
       // GTM noscript fallbacks
       'noscript',
+      // Departure warning popup modal
+      '.modal-popup.popup-departure',
+      '#abbvie-warn-on-departure-popup',
+      // Back to top button
+      '.button.back-to-top',
+      // Tracking pixels (Twitter, analytics)
+      'img[src*="t.co/i/adsct"]',
+      'img[src*="analytics.twitter.com"]',
     ]);
   }
 }

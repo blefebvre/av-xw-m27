@@ -236,3 +236,57 @@ main .section.dark h6 {
 main .section.dark a:any-link {
   color: #fff;
 }
+
+/* Article meta (autoblocked for template: article) */
+.article-meta {
+  margin-bottom: 24px;
+}
+
+.article-breadcrumb {
+  margin-bottom: 24px;
+}
+
+main .article-breadcrumb a:any-link {
+  font-size: 14px;
+  font-weight: 500;
+  color: #0066f5;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  text-decoration: none;
+}
+
+main .article-breadcrumb a:any-link::before {
+  content: '\2039';
+  margin-right: 6px;
+  font-size: 18px;
+}
+
+main .article-breadcrumb a:any-link:hover {
+  text-decoration: underline;
+}
+
+.article-info {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  font-size: 14px;
+  color: var(--text-color);
+  margin-bottom: 16px;
+}
+
+.article-date {
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.article-category {
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--text-color);
+  text-decoration: none;
+}
+
+.article-category:hover {
+  text-decoration: underline;
+}

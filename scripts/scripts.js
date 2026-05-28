@@ -227,9 +227,58 @@ function autolinkModals(doc) {
  * Builds all synthetic blocks in a container element.
  * @param {Element} main The container element
  */
+function buildArticleMeta(main) {
+  if (getMetadata('template') !== 'article') return;
+
+  const firstSection = main.querySelector('.section');
+  if (!firstSection) return;
+
+  const metaWrapper = document.createElement('div');
+  metaWrapper.className = 'article-meta';
+
+  // Breadcrumb from path
+  const path = window.location.pathname;
+  const segments = path.split('/').filter(Boolean);
+  if (segments.length > 1) {
+    const breadcrumb = document.createElement('nav');
+    breadcrumb.className = 'article-breadcrumb';
+    breadcrumb.setAttribute('aria-label', 'Breadcrumb');
+    const link = document.createElement('a');
+    link.href = `/${segments.slice(0, -1).join('/')}.html`;
+    link.textContent = 'All Stories';
+    breadcrumb.appendChild(link);
+    metaWrapper.appendChild(breadcrumb);
+  }
+
+  // Date and category row
+  const publishdate = getMetadata('publishdate');
+  const category = getMetadata('category');
+  if (publishdate || category) {
+    const infoRow = document.createElement('div');
+    infoRow.className = 'article-info';
+    if (publishdate) {
+      const dateSpan = document.createElement('span');
+      dateSpan.className = 'article-date';
+      dateSpan.textContent = publishdate;
+      infoRow.appendChild(dateSpan);
+    }
+    if (category) {
+      const catLink = document.createElement('a');
+      catLink.className = 'article-category';
+      catLink.textContent = category;
+      catLink.href = '#';
+      infoRow.appendChild(catLink);
+    }
+    metaWrapper.appendChild(infoRow);
+  }
+
+  firstSection.prepend(metaWrapper);
+}
+
 function buildAutoBlocks(main) {
   try {
     buildDynamicMediaImages(main);
+    buildArticleMeta(main);
   } catch (error) {
     // eslint-disable-next-line no-console
     console.error('Auto Blocking failed', error);
