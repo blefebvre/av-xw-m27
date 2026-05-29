@@ -86,6 +86,37 @@
           ]
         }
       ]
+    },
+    {
+      "name": "leadership-page",
+      "urls": [
+        "https://www.abbvie.com/science/our-people/our-rd-leaders.html"
+      ],
+      "description": "Leadership team page with grid of executive profiles including photos, names, and titles",
+      "blocks": [
+        {
+          "name": "cards-leader",
+          "instances": [".cardpagestory.card-standard.card-small.standard-title"]
+        }
+      ],
+      "sections": [
+        {
+          "id": "section-hero",
+          "name": "Hero Header",
+          "selector": ".container.abbvie-container.large-radius.cmp-container-full-width",
+          "style": "dark",
+          "blocks": [],
+          "defaultContent": [".cmp-title", ".cmp-text"]
+        },
+        {
+          "id": "section-leaders-grid",
+          "name": "Leaders Grid",
+          "selector": ".grid.cmp-grid-custom",
+          "style": null,
+          "blocks": ["cards-leader"],
+          "defaultContent": []
+        }
+      ]
     }
   ]
 }

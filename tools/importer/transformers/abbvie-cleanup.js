@@ -36,8 +36,8 @@ export default function transform(hookName, element, payload) {
       }
     }
 
-    // Remove breadcrumb "All Stories" back-CTA (will be autoblocked from template)
-    WebImporter.DOMUtils.remove(element, ['.button.back-cta']);
+    // Remove breadcrumbs (will be autoblocked from template)
+    WebImporter.DOMUtils.remove(element, ['.button.back-cta', '.breadcrumb.abbvie-breadcrumb']);
 
     // Remove storyinfo (date/category extracted above; read-time will be autoblocked)
     WebImporter.DOMUtils.remove(element, ['.storyinfo']);

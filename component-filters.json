@@ -40,6 +40,12 @@
     ]
   },
   {
+    "id": "cards-leader",
+    "components": [
+      "card"
+    ]
+  },
+  {
     "id": "cards",
     "components": [
       "card"

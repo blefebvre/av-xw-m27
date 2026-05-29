@@ -1,0 +1,77 @@
+.cards-leader > ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.cards-leader > ul > li {
+  display: flex;
+  flex-direction: column;
+}
+
+.cards-leader > ul > li > div:first-child {
+  line-height: 0;
+}
+
+.cards-leader > ul > li > div:first-child picture {
+  display: block;
+}
+
+.cards-leader > ul > li > div:first-child img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+
+.cards-leader > ul > li > div:last-child {
+  padding: 16px 0;
+}
+
+.cards-leader > ul > li > div:last-child p {
+  margin: 0;
+  color: var(--text-color);
+}
+
+.cards-leader > ul > li > div:last-child p:first-of-type {
+  font-size: 20px;
+  font-weight: 400;
+  font-family: var(--body-font-family);
+  line-height: 24px;
+  margin-bottom: 8px;
+}
+
+/* stylelint-disable-next-line no-descending-specificity */
+.cards-leader > ul > li > div:last-child p:nth-of-type(2) {
+  font-size: 14px;
+  line-height: 20px;
+  margin-bottom: 12px;
+}
+
+.cards-leader > ul > li > div:last-child p:last-of-type a {
+  font-size: 14px;
+  font-weight: 700;
+  color: #0066f5;
+  text-transform: uppercase;
+  letter-spacing: 0.84px;
+  text-decoration: none;
+}
+
+.cards-leader > ul > li > div:last-child p:last-of-type a:hover {
+  text-decoration: underline;
+}
+
+@media (width < 900px) {
+  .cards-leader > ul {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+}
+
+@media (width >= 900px) and (width < 1200px) {
+  .cards-leader > ul {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
