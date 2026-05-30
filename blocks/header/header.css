@@ -227,6 +227,12 @@ header nav .nav-sections ul > li > ul > li {
     position: relative;
     font-size: 18px;
     line-height: 24px;
+    padding: 32px 0;
+  }
+
+  header nav .nav-sections .default-content-wrapper > ul > li[aria-expanded='true'] {
+    border-top: 3px solid #0066f5;
+    padding-top: 29px;
   }
 
   header nav .nav-sections .default-content-wrapper > ul > li > ul {
@@ -235,17 +241,21 @@ header nav .nav-sections ul > li > ul > li {
   }
 
   header nav .nav-sections .default-content-wrapper > ul > li[aria-expanded='true'] > ul {
-    display: block;
-    position: absolute;
-    left: -24px;
-    width: 280px;
-    top: calc(100% + 16px);
-    padding: 24px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px 48px;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 88px;
+    padding: 48px 55px;
     background-color: #fff;
-    box-shadow: 0 4px 24px rgb(0 0 0 / 12%);
-    border-radius: 8px;
     white-space: initial;
-    z-index: 1;
+    z-index: 10;
+    max-width: 1440px;
+    margin: 0 auto;
+    box-sizing: border-box;
+    list-style: none;
   }
 
   header nav .nav-sections .default-content-wrapper > ul > li[aria-expanded='true'] > ul ul {
@@ -253,17 +263,29 @@ header nav .nav-sections ul > li > ul > li {
   }
 
   header nav .nav-sections .default-content-wrapper > ul > li > ul > li {
-    padding: 8px 0;
+    padding: 12px 0;
   }
 
   header nav .nav-sections .default-content-wrapper > ul > li > ul > li a {
-    font-size: 16px;
-    line-height: 22px;
+    font-family: var(--heading-font-family);
+    font-size: 22px;
+    font-weight: 650;
+    line-height: 1.3;
     color: var(--text-color);
+    text-decoration: none;
   }
 
   header nav .nav-sections .default-content-wrapper > ul > li > ul > li a:hover {
     text-decoration: underline;
+  }
+
+  header nav .nav-sections .default-content-wrapper > ul > li > ul > li:has(ul)::before {
+    content: '+';
+    display: inline-block;
+    margin-right: 12px;
+    font-size: 22px;
+    font-weight: 300;
+    color: var(--text-color);
   }
 }
 
